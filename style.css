@@ -1,7 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*Reset CSS*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    outline: none;
 }
+
+body {
+    
+    background: linear-gradient(to top,#48B02C, #8C8303);
+}
+
+.logo {
+    width: 200px;
+    /*Para centralizar imagens precisa definir o display para block e margin auto*/
+    margin: 25px auto;
+    display: block;
+}
+
+main {
+    width: 375px;
+    background-color: #F4F4F4;
+    border-radius: 20px;
+    margin: 0 auto 40px;
+    padding: 44px 24px 33px; /*1) cima 2)lados 3)baixo*/
+}
+
+label {
+    color: #777777;
+    font-weight:400;
+    font-size: 14px;
+}
+
+
+select, input {
+    background: #FFFFFF;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    height: 48px;
+    width: 100%;
+    margin-bottom: 25px;
+    padding-left: 15px ;
+    font-weight: 500;
+    font-size: 16px;
+    color: #555555;
+    cursor: pointer;
+}
+
+.convert-button {
+    background: #45BF41;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    height: 48px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #48B02C;
+}
+
+button:active {
+    background-color:#59A656 ;
+}
+
+section {
+    border: 1px solid #45BF41 ;
+    border-radius: 20px;
+    margin-top: 36px;
+    padding: 12px;
+
+    /*Aplicando display flex*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow {
+    width: 50px;
+    margin: 20px 0;
+}
+
+.currency-box {
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.currency {
+    color: #777777;
+    font-size: 14px;
+}
+
+.currency-value {
+    color: #555555;
+    font-weight: 700;
+    font-size: 20px;
+}
+
