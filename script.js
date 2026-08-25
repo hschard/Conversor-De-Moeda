@@ -1,6 +1,6 @@
 const convertButton = document.querySelector(".convert-button");
 const currencySelect = document.querySelector(".currency-select");
-
+const currencySelectSrc = document.querySelector(".currency-select-src");
 function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value;
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert") //Valor em real
@@ -49,7 +49,26 @@ function convertValues() {
 }
 
 //Altera nome e simbolos das primeiras moedas
-function changeCurrencySrc() {
+function changeCurrencySrc() { //AJUSTAR    
+
+    const currencyNameSrc = document.getElementById("currency-name-src");
+    const currencyImageSrc = document.querySelector(".currency-img-src");
+    console.log(currencySelectSrc.value);
+
+    if (currencySelectSrc.value == "real"){
+        currencyNameSrc.innerHTML = "Real";
+        currencyImageSrc.src = "./assets/real.png"
+    }
+
+    if (currencySelectSrc.value == "dolar"){
+        currencyNameSrc.innerHTML = "Dólar americano";
+        currencyImageSrc.src = "./assets/dolar.png"
+    }
+
+    if (currencySelectSrc.value == "euro"){
+        currencyNameSrc.innerHTML = "Euro";
+        currencyImageSrc.src = "./assets/euro.png"
+    }
 
 }
 
@@ -84,4 +103,5 @@ function changeCurrencyResult(){
 }
 
 currencySelect.addEventListener("change", changeCurrencyResult);
+currencySelectSrc.addEventListener("change", changeCurrencySrc);
 convertButton.addEventListener("click", convertValues);
