@@ -14,8 +14,10 @@
     <main>
         <label>
             Converter <b>de</b>
-            <select>
-                <option>R$ Real Brasileiro</option>
+            <select class="currency-select-src">
+                <option value="real">R$ Real Brasileiro</option>
+                <option value="dolar">US$ Dolar Americano</option>
+                <option value="euro">€ Euro Alemão</option>
             </select>
         </label>
 
@@ -23,7 +25,9 @@
             Converter <b>para</b>
             <select class="currency-select">
                 <option value="dolar">US$ Dolar Americano</option>
-                <option value="euro">€ Euro</option>
+                <option value="euro">€ Euro Alemão</option>
+                <option value="yuan">¥ Yuan Chinês</option>
+                <option value="libra">£ Libra Esterlina</option>
             </select>
         </label>
 
@@ -44,8 +48,8 @@
             <img class="arrow" src="./assets/arrow.png" alt="seta">
 
               <div class="currency-box">
-                <img src="./assets/dolar.png" alt="logo-moeda-convertida">
-                <p class="currency">Dólar</p>
+                <img class="currency-img" src="./assets/dolar.png" alt="logo-moeda-convertida">
+                <p class="currency" id="currency-name">Dólar americano</p>
                 <p class="currency-value">US$ 0,00</p>
             </div>
 
