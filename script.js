@@ -33,7 +33,7 @@ function convertValues() {
 
   console.log("Valor final: " + finalValue);
 
-  //Valor antes
+  //Valores a converter
  if (currencySelectSrc.value == "dolar") {
     //SE o select estiver no valor de dolar entra aqui
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("en-US", {
@@ -65,7 +65,7 @@ function convertValues() {
     }).format(inputCurrencyValue);
   }
 
-  //Valor depois
+  //Valor convertidos
   if (currencySelect.value == "dolar") {
     //SE o select estiver no valor de dolar entra aqui
     currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
@@ -99,9 +99,8 @@ function convertValues() {
 
 }
 
-//Altera nome e simbolos das primeiras moedas
+//Altera nome e simbolos das moedas de origem
 function changeCurrencySrc() {
-  //AJUSTAR
 
   const currencyNameSrc = document.getElementById("currency-name-src");
   const currencyImageSrc = document.querySelector(".currency-img-src");
@@ -139,11 +138,10 @@ function changeCurrencySrc() {
     inputCurrency.placeholder = "£ 1.000,00";
   }
 
-
   convertValues();
 }
 
-//Altera nome e simbolos das moedas de saida
+//Altera nome e simbolos das moedas destino
 function changeCurrencyResult() {
   const currencyName = document.getElementById("currency-name");
   const currencyImage = document.querySelector(".currency-img");
