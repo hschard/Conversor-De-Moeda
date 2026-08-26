@@ -15,18 +15,23 @@ function convertValues() {
     euro: 6,
     yuan: 0.8,
     libra: 7.0,
-    guarani: 0.00085
   }
 
   //Pegando valor das taxas baseado no select
   const rateSource = rate[currencySelectSrc.value];
   const rateTarget = rate[currencySelect.value];
 
-  //Converter valore de origem para base real
-  const AmountBRL = inputCurrencyValue * rateSource;
+  console.log("Source: " + rateSource + ", Target: " + rateTarget);
 
-  //Divide o valor em reais pela moeda de destino
-  const finalValue = AmountBRL / rateTarget;
+  //Verifica se a moeda de origem é maior que a moeda destino. Pega o Input e multiplica pela taxa. Pega o valor da moeda direto do select
+  let finalValue = inputCurrencyValue * rateSource / rateTarget;
+
+  //Caso o valor final esteja vazio ele será substituido por 0
+  if (isNaN(finalValue)) {
+    finalValue = 0;
+  }
+
+  console.log("Valor final: " + finalValue);
 
   //Valor antes
  if (currencySelectSrc.value == "dolar") {
@@ -57,11 +62,6 @@ function convertValues() {
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
-    }).format(inputCurrencyValue);
-  }else if (currencySelectSrc.value == "guarani") {
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat("es-PY", {
-        style: "currency",
-        currency: "PYG"
     }).format(inputCurrencyValue);
   }
 
@@ -94,11 +94,6 @@ function convertValues() {
     currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
-    }).format(finalValue);
-  } else if (currencySelect.value == "guarani") {
-    currencyValueConverted.innerHTML = new Intl.NumberFormat("es-PY", {
-        style: "currency",
-        currency: "PYG"
     }).format(finalValue);
   }
 
@@ -144,11 +139,6 @@ function changeCurrencySrc() {
     inputCurrency.placeholder = "£ 1.000,00";
   }
 
-  if (currencySelectSrc.value == "guarani") {
-    currencyNameSrc.innerHTML = "guarani";
-    currencyImageSrc.src = "./assets/Guarani.png";
-    inputCurrency.placeholder = "₲ 1.000,00";
-  }
 
   convertValues();
 }
@@ -183,10 +173,6 @@ function changeCurrencyResult() {
     currencyImage.src = "./assets/real.png";
   }
 
-  if (currencySelect.value == "guarani") {
-    currencyName.innerHTML = "guarani";
-    currencyImage.src = "./assets/Guarani.png";
-  }
 
   convertValues();
 }
